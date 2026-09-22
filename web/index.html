@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lavanderia Fresh</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo-area">
+                <img src="logo.png" alt="Lavanderia Fresh">
+
+                <div>
+                    <h2>Lavanderia</h2>
+                    <span>Fresh</span>
+                </div>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item ativo">
+                    🏠
+                    <span>Início</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    📦
+                    <span>Pedidos</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    👥
+                    <span>Clientes</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    👕
+                    <span>Roupas</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    💳
+                    <span>Pagamentos</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    📊
+                    <span>Relatórios</span>
+                </a>
+
+            </nav>
+
+            <div class="menu-inferior">
+
+                <a href="#" class="menu-item">
+                    ⚙️
+                    <span>Configurações</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div class="conteudo">
+
+            <header class="topo">
+
+                <div>
+                    <p class="saudacao">Painel de controle</p>
+                    <h1>Olá! 👋</h1>
+                    <p>Gerencie sua lavanderia de forma simples e eficiente.</p>
+                </div>
+
+                <button class="botao-novo">
+                    + Novo pedido
+                </button>
+
+            </header>
+
+
+            <main>
+
+                <!-- DASHBOARD -->
+
+                <section class="dashboard">
+
+                    <div class="card">
+
+                        <div class="card-icone azul">
+                            📦
+                        </div>
+
+                        <div>
+                            <p>Total de pedidos</p>
+                            <strong id="totalPedidos">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-icone laranja">
+                            👕
+                        </div>
+
+                        <div>
+                            <p>Total de roupas</p>
+                            <strong id="totalRoupas">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-icone verde">
+                            🧼
+                        </div>
+
+                        <div>
+                            <p>Roupas lavadas</p>
+                            <strong id="roupasLavadas">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-icone vermelho">
+                            💰
+                        </div>
+
+                        <div>
+                            <p>Pagamentos pendentes</p>
+                            <strong id="pagamentosPendentes">0</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- NOVO PEDIDO -->
+
+                <section class="formulario">
+
+                    <div class="titulo-secao">
+
+                        <div>
+                            <h2>Novo pedido</h2>
+                            <p>Cadastre um novo pedido de lavanderia.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="campo">
+
+                            <label for="nomeCliente">
+                                Nome do cliente
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nomeCliente"
+                                placeholder="Digite o nome do cliente"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="quantidadeRoupas">
+                                Quantidade de roupas
+                            </label>
+
+                            <input
+                                type="number"
+                                id="quantidadeRoupas"
+                                min="1"
+                                placeholder="Ex: 20"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="roupasLavadasInput">
+                                Roupas já lavadas
+                            </label>
+
+                            <input
+                                type="number"
+                                id="roupasLavadasInput"
+                                min="0"
+                                placeholder="Ex: 10"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="pagamento">
+                                Pagamento
+                            </label>
+
+                            <select id="pagamento">
+
+                                <option value="nao">
+                                    Pendente
+                                </option>
+
+                                <option value="sim">
+                                    Pago
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="botao-cadastrar"
+                        onclick="cadastrarPedido()"
+                    >
+                        Cadastrar pedido
+                    </button>
+
+                </section>
+
+
+                <!-- PEDIDOS -->
+
+                <section class="pedidos">
+
+                    <div class="titulo-pedidos">
+
+                        <div>
+                            <h2>Pedidos cadastrados</h2>
+
+                            <p>
+                                Acompanhe os pedidos da Lavanderia Fresh.
+                            </p>
+                        </div>
+
+
+                        <input
+                            type="text"
+                            id="buscarCliente"
+                            placeholder="🔎 Buscar cliente..."
+                        >
+
+                    </div>
+
+
+                    <div id="listaPedidos">
+
+                        <p class="nenhum-pedido">
+                            Nenhum pedido cadastrado.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                     <!-- CLIENTES -->
+
+<section class="clientes" id="clientes">
+
+    <div class="titulo-secao">
+
+        <div>
+            <h2>Clientes</h2>
+            <p>Gerencie os clientes cadastrados na lavanderia.</p>
+        </div>
+
+        <button
+            class="botao-novo-cliente"
+            onclick="abrirCadastroCliente()"
+        >
+            + Novo cliente
+        </button>
+
+    </div>
+
+
+    <div class="clientes-conteudo">
+
+        <div
+            class="cliente-formulario"
+            id="clienteFormulario"
+        >
+
+            <h3>Cadastrar cliente</h3>
+
+            <label for="nomeNovoCliente">
+                Nome do cliente
+            </label>
+
+            <input
+                type="text"
+                id="nomeNovoCliente"
+                placeholder="Digite o nome"
+            >
+
+            <button onclick="cadastrarCliente()">
+                Cadastrar cliente
+            </button>
+
+        </div>
+
+
+        <div
+            class="lista-clientes"
+            id="listaClientes"
+        >
+
+            <p class="nenhum-pedido">
+                Nenhum cliente cadastrado.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html> 
